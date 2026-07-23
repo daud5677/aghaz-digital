@@ -1,10 +1,15 @@
 // ============================================
-// PRELOADER - iOS Safari Fixed
+// PRELOADER - iOS Safari Bulletproof Fix
 // ============================================
+// Lock body scroll while preloader is showing
+document.body.style.overflow = 'hidden';
+
 function hidePreloader() {
     const preloader = document.getElementById('preloader');
     if (preloader) {
         preloader.classList.add('hidden');
+        // Unlock body scroll
+        document.body.style.overflow = '';
         setTimeout(() => {
             preloader.style.display = 'none';
         }, 800);
