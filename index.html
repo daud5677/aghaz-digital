@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#0F766E">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <title>Aghaz Digital | Start. Grow. Succeed.</title>
     <link rel="icon" href="logo.png">
     <link rel="stylesheet" href="style.css">
@@ -37,6 +40,9 @@
     <!-- Floating Particles -->
     <div class="particles" id="particles"></div>
 
+    <!-- Main Content Wrapper -->
+    <div class="main-wrapper" id="mainWrapper">
+
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
@@ -52,11 +58,11 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="nav-right">
-                <button id="darkModeBtn" onclick="toggleDarkMode()" class="dark-toggle">
+                <button id="darkModeBtn" onclick="toggleDarkMode()" class="dark-toggle" aria-label="Toggle Dark Mode">
                     <i class="fas fa-moon"></i>
                 </button>
                 <a href="#contact" class="nav-cta">Get Started <i class="fas fa-arrow-right"></i></a>
-                <div class="menu-toggle" onclick="toggleMenu()">
+                <div class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle Menu">
                     <span></span><span></span><span></span>
                 </div>
             </div>
@@ -120,21 +126,23 @@
             </div>
         </div>
 
-        <!-- Marquee -->
-        <div class="marquee">
-            <div class="marquee-track">
-                <span>✦ START</span>
-                <span>✦ GROW</span>
-                <span>✦ SUCCEED</span>
-                <span>✦ INNOVATE</span>
-                <span>✦ DESIGN</span>
-                <span>✦ DEVELOP</span>
-                <span>✦ START</span>
-                <span>✦ GROW</span>
-                <span>✦ SUCCEED</span>
-                <span>✦ INNOVATE</span>
-                <span>✦ DESIGN</span>
-                <span>✦ DEVELOP</span>
+        <!-- Marquee Wrapper -->
+        <div class="marquee-wrap">
+            <div class="marquee">
+                <div class="marquee-track">
+                    <span>✦ START</span>
+                    <span>✦ GROW</span>
+                    <span>✦ SUCCEED</span>
+                    <span>✦ INNOVATE</span>
+                    <span>✦ DESIGN</span>
+                    <span>✦ DEVELOP</span>
+                    <span>✦ START</span>
+                    <span>✦ GROW</span>
+                    <span>✦ SUCCEED</span>
+                    <span>✦ INNOVATE</span>
+                    <span>✦ DESIGN</span>
+                    <span>✦ DEVELOP</span>
+                </div>
             </div>
         </div>
     </section>
@@ -574,6 +582,8 @@
     </footer>
 
     <a href="#home" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+    </div> <!-- End Main Wrapper -->
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
