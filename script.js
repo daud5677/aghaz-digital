@@ -1,30 +1,38 @@
 // ============================================
-// PRELOADER - iOS Safari Bulletproof Fix
+// CRITICAL: Hide body content immediately (iOS Fix)
 // ============================================
-// Lock body scroll while preloader is showing
+document.documentElement.style.overflow = 'hidden';
 document.body.style.overflow = 'hidden';
 
-function hidePreloader() {
+// Force hide preloader function
+function forceHidePreloader() {
     const preloader = document.getElementById('preloader');
     if (preloader) {
-        preloader.classList.add('hidden');
-        // Unlock body scroll
+        preloader.style.opacity = '0';
+        preloader.style.visibility = 'hidden';
+        preloader.style.pointerEvents = 'none';
+        preloader.style.transition = 'opacity 0.6s ease, visibility 0.6s ease';
+        document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
         setTimeout(() => {
             preloader.style.display = 'none';
-        }, 800);
+        }, 600);
     }
 }
 
-// Hide preloader when page loads
-window.addEventListener('load', () => {
-    setTimeout(hidePreloader, 1500);
-});
+// Multiple triggers to ensure preloader hides
+if (document.readyState === 'complete') {
+    setTimeout(forceHidePreloader, 1500);
+} else {
+    window.addEventListener('load', () => setTimeout(forceHidePreloader, 1500));
+}
 
-// Fallback: Hide preloader after 3 seconds max (iOS safety)
-setTimeout(hidePreloader, 3000);
+// Absolute fallback (iOS Safari safety)
+setTimeout(forceHidePreloader, 3500);
 
-// Init AOS
+// ============================================
+// AOS INIT
+// ============================================
 window.addEventListener('load', () => {
     if (typeof AOS !== 'undefined') {
         AOS.init({ 
@@ -38,7 +46,7 @@ window.addEventListener('load', () => {
 });
 
 // ============================================
-// PARTICLES - Reduced on Mobile for Performance
+// PARTICLES - Reduced on Mobile
 // ============================================
 const particlesContainer = document.getElementById('particles');
 if (particlesContainer) {
@@ -83,7 +91,7 @@ if (localStorage.getItem('darkMode') === 'enabled') {
 }
 
 // ============================================
-// CUSTOM CURSOR - Desktop Only (Disabled on Touch Devices)
+// CUSTOM CURSOR - Desktop Only
 // ============================================
 const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
 
@@ -134,7 +142,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 });
 
 // ============================================
-// SCROLL EFFECTS - Throttled for Smooth Performance
+// SCROLL EFFECTS - Smooth Performance
 // ============================================
 let ticking = false;
 
@@ -159,7 +167,6 @@ function updateOnScroll() {
         scrollProgress.style.width = (scroll / height * 100) + '%';
     }
 
-    // Active nav link
     const sections = document.querySelectorAll('section');
     const links = document.querySelectorAll('.nav-links a');
     let current = '';
