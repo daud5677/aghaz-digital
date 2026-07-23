@@ -20,11 +20,13 @@
     <div class="cursor" id="cursor"></div>
     <div class="cursor-follower" id="cursorFollower"></div>
 
-    <!-- Preloader -->
-    <div class="preloader" id="preloader">
-        <img src="logo.png" alt="Aghaz Digital" class="preloader-logo">
-        <div class="loader-bar"><div class="loader-progress"></div></div>
-        <p class="loader-text">START. GROW. SUCCEED.</p>
+    <!-- Preloader - iOS Safari Bulletproof (Inline Styles) -->
+    <div class="preloader" id="preloader" style="position:fixed;top:0;left:0;right:0;bottom:0;width:100%;height:100vh;background:#ffffff;z-index:99999999;display:flex;flex-direction:column;justify-content:center;align-items:center;">
+        <img src="logo.png" alt="Aghaz Digital" class="preloader-logo" style="width:200px;max-width:60%;margin-bottom:30px;">
+        <div class="loader-bar" style="width:200px;max-width:80%;height:3px;background:#E2E8F0;border-radius:5px;overflow:hidden;margin-bottom:20px;">
+            <div class="loader-progress"></div>
+        </div>
+        <p class="loader-text" style="color:#64748B;letter-spacing:5px;font-size:12px;font-weight:600;text-align:center;">START. GROW. SUCCEED.</p>
     </div>
 
     <!-- Scroll Progress -->
@@ -39,9 +41,6 @@
 
     <!-- Floating Particles -->
     <div class="particles" id="particles"></div>
-
-    <!-- Main Content Wrapper -->
-    <div class="main-wrapper" id="mainWrapper">
 
     <!-- Navigation -->
     <nav id="navbar">
@@ -582,8 +581,6 @@
     </footer>
 
     <a href="#home" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
-
-    </div> <!-- End Main Wrapper -->
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
