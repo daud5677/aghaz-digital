@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aghaz Digital | Start. Grow. Succeed.</title>
+    <link rel="icon" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <img src="logo.png" alt="Aghaz Digital" class="preloader-logo">
+        <div class="loader-bar"><div class="loader-progress"></div></div>
+        <p class="loader-text">START. GROW. SUCCEED.</p>
+    </div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Background Elements -->
+    <div class="bg-mesh">
+        <div class="mesh mesh-1"></div>
+        <div class="mesh mesh-2"></div>
+        <div class="mesh mesh-3"></div>
+    </div>
+
+    <!-- Floating Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <img src="logo.png" alt="Aghaz Digital">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <button id="darkModeBtn" onclick="toggleDarkMode()" class="dark-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="#contact" class="nav-cta">Get Started <i class="fas fa-arrow-right"></i></a>
+                <div class="menu-toggle" onclick="toggleMenu()">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="pulse-dot"></span>
+                    Welcome to Aghaz Digital
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">Digital Solutions</span>
+                    <span class="title-line accent">That Drive Growth</span>
+                </h1>
+                <p class="hero-desc">
+                    Hum aap ke business ko digital duniya me <span class="highlight">successful</span> banate hain. Modern websites, powerful apps, aur result-driven digital marketing — sab kuch ek jagah.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary">
+                        <span>Our Services</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#portfolio" class="btn btn-outline">
+                        <i class="fas fa-play-circle"></i>
+                        <span>View Portfolio</span>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <h3><span class="counter" data-target="150">0</span>+</h3>
+                        <p>Projects Delivered</p>
+                    </div>
+                    <div class="stat">
+                        <h3><span class="counter" data-target="100">0</span>+</h3>
+                        <p>Happy Clients</p>
+                    </div>
+                    <div class="stat">
+                        <h3><span class="counter" data-target="5">0</span>+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="visual-wrapper">
+                    <div class="glow-effect"></div>
+                    <img src="logo.png" alt="Aghaz Digital" class="hero-logo">
+                    <div class="orbit-ring"></div>
+                    <div class="orbit-ring ring-2"></div>
+                    
+                    <div class="floating-icon icon-1"><i class="fab fa-html5"></i></div>
+                    <div class="floating-icon icon-2"><i class="fab fa-css3-alt"></i></div>
+                    <div class="floating-icon icon-3"><i class="fab fa-js"></i></div>
+                    <div class="floating-icon icon-4"><i class="fab fa-react"></i></div>
+                    <div class="floating-icon icon-5"><i class="fab fa-figma"></i></div>
+                    <div class="floating-icon icon-6"><i class="fab fa-node-js"></i></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Marquee -->
+        <div class="marquee">
+            <div class="marquee-track">
+                <span>✦ START</span>
+                <span>✦ GROW</span>
+                <span>✦ SUCCEED</span>
+                <span>✦ INNOVATE</span>
+                <span>✦ DESIGN</span>
+                <span>✦ DEVELOP</span>
+                <span>✦ START</span>
+                <span>✦ GROW</span>
+                <span>✦ SUCCEED</span>
+                <span>✦ INNOVATE</span>
+                <span>✦ DESIGN</span>
+                <span>✦ DEVELOP</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image" data-aos="fade-right">
+                    <div class="about-img-box">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600" alt="Team">
+                        <div class="floating-stat">
+                            <h3>5+</h3>
+                            <p>Years of Excellence</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-content" data-aos="fade-left">
+                    <p class="subtitle"><span class="line"></span> About Us</p>
+                    <h2 class="section-title">Empowering Businesses Through <span class="accent">Digital Innovation</span></h2>
+                    <p class="section-desc">Aghaz Digital ek premium digital agency hai jo Pakistan aur duniya bhar ke businesses ko digital solutions provide karti hai. Hamari team creative minds aur expert developers ki hai jo aap ke ideas ko reality me badalte hain.</p>
+                    
+                    <div class="features-list">
+                        <div class="feature">
+                            <div class="feature-icon"><i class="fas fa-lightbulb"></i></div>
+                            <div>
+                                <h4>Creative Solutions</h4>
+                                <p>Innovative ideas jo aap ke brand ko unique banayen</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon"><i class="fas fa-rocket"></i></div>
+                            <div>
+                                <h4>Fast Delivery</h4>
+                                <p>Time par quality projects deliver karte hain</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                            <div>
+                                <h4>100% Reliable</h4>
+                                <p>Trusted by 100+ clients worldwide</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="btn btn-primary">
+                        <span>Start Your Project</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <p class="subtitle"><span class="line"></span> Our Services <span class="line"></span></p>
+                <h2 class="section-title">What We <span class="accent">Offer</span></h2>
+                <p class="section-desc">Complete digital solutions to help your business grow and succeed in the modern digital landscape.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Web Development</h3>
+                    <p>Modern, responsive websites built with latest technologies for maximum performance.</p>
+                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card featured" data-aos="fade-up" data-aos-delay="200">
+                    <div class="popular-tag">Popular</div>
+                    <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Mobile Apps</h3>
+                    <p>iOS and Android apps that provide seamless user experience and drive engagement.</p>
+                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+                    <h3>UI/UX Design</h3>
+                    <p>Beautiful, intuitive interfaces designed to convert visitors into loyal customers.</p>
+                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+                    <h3>Digital Marketing</h3>
+                    <p>SEO, social media, and paid ads to grow your online presence and reach more customers.</p>
+                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>SEO Optimization</h3>
+                    <p>Rank higher on Google and attract quality organic traffic to your website.</p>
+                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-icon"><i class="fas fa-cogs"></i></div>
+                    <h3>Brand Identity</h3>
+                    <p>Complete branding solutions including logo, colors, and brand guidelines.</p>
+                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <p class="subtitle"><span class="line"></span> Our Work <span class="line"></span></p>
+                <h2 class="section-title">Recent <span class="accent">Projects</span></h2>
+                <p class="section-desc">Take a look at some of our latest work delivered to satisfied clients.</p>
+            </div>
+            <div class="portfolio-filter" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="mobile">Mobile</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+                <button class="filter-btn" data-filter="brand">Branding</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="web" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600" alt="Project">
+                    <div class="portfolio-overlay">
+                        <span class="cat">Web Design</span>
+                        <h3>E-commerce Platform</h3>
+                        <a href="#"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="mobile" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600" alt="Project">
+                    <div class="portfolio-overlay">
+                        <span class="cat">Mobile App</span>
+                        <h3>Food Delivery App</h3>
+                        <a href="#"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="design" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://picsum.photos/600/450?random=3" alt="Project">
+                    <div class="portfolio-overlay">
+                        <span class="cat">UI/UX Design</span>
+                        <h3>Dashboard Design</h3>
+                        <a href="#"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="brand" data-aos="fade-up" data-aos-delay="400">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=600" alt="Project">
+                    <div class="portfolio-overlay">
+                        <span class="cat">Branding</span>
+                        <h3>Brand Identity</h3>
+                        <a href="#"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="web" data-aos="fade-up" data-aos-delay="500">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600" alt="Project">
+                    <div class="portfolio-overlay">
+                        <span class="cat">Web Design</span>
+                        <h3>SaaS Landing Page</h3>
+                        <a href="#"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="mobile" data-aos="fade-up" data-aos-delay="600">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600" alt="Project">
+                    <div class="portfolio-overlay">
+                        <span class="cat">Mobile App</span>
+                        <h3>Fitness Tracker</h3>
+                        <a href="#"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <p class="subtitle"><span class="line"></span> How We Work <span class="line"></span></p>
+                <h2 class="section-title">Our <span class="accent">Process</span></h2>
+            </div>
+            <div class="process-grid">
+                <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-num">01</div>
+                    <div class="step-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Discovery</h3>
+                    <p>Understanding your business goals and target audience.</p>
+                </div>
+                <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-num">02</div>
+                    <div class="step-icon"><i class="fas fa-pencil-ruler"></i></div>
+                    <h3>Strategy</h3>
+                    <p>Creating a detailed plan and design mockups for approval.</p>
+                </div>
+                <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-num">03</div>
+                    <div class="step-icon"><i class="fas fa-code"></i></div>
+                    <h3>Development</h3>
+                    <p>Building your project with the latest technologies and best practices.</p>
+                </div>
+                <div class="process-step" data-aos="fade-up" data-aos-delay="400">
+                    <div class="step-num">04</div>
+                    <div class="step-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Launch</h3>
+                    <p>Deploying your project and providing ongoing support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <p class="subtitle"><span class="line"></span> Meet The Team <span class="line"></span></p>
+                <h2 class="section-title">Our <span class="accent">Experts</span></h2>
+                <p class="section-desc">A team of passionate professionals dedicated to your success.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="team-img">
+                        <img src="https://i.pravatar.cc/400?img=12" alt="Team">
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <h3>Daud Ahmed</h3>
+                    <p>Founder & CEO</p>
+                </div>
+                <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-img">
+                        <img src="https://i.pravatar.cc/400?img=32" alt="Team">
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <h3>Ali Hassan</h3>
+                    <p>Lead Developer</p>
+                </div>
+                <div class="team-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="team-img">
+                        <img src="https://i.pravatar.cc/400?img=45" alt="Team">
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <h3>Sara Khan</h3>
+                    <p>UI/UX Designer</p>
+                </div>
+                <div class="team-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="team-img">
+                        <img src="https://i.pravatar.cc/400?img=68" alt="Team">
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <h3>Bilal Ahmed</h3>
+                    <p>Marketing Lead</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <p class="subtitle"><span class="line"></span> Client Reviews <span class="line"></span></p>
+                <h2 class="section-title">What Our <span class="accent">Clients Say</span></h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <div class="stars">★★★★★</div>
+                    <p>"Aghaz Digital ne humari website bahut zabardast banai! Professional aur time par delivery. Highly recommended!"</p>
+                    <div class="client">
+                        <img src="https://i.pravatar.cc/100?img=5" alt="Client">
+                        <div>
+                            <h4>Ahmed Khan</h4>
+                            <p>CEO, TechStart</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <div class="stars">★★★★★</div>
+                    <p>"Amazing team! Har cheez perfect deliver ki. Website beautiful hai aur bahut fast chalti hai."</p>
+                    <div class="client">
+                        <img src="https://i.pravatar.cc/100?img=10" alt="Client">
+                        <div>
+                            <h4>Sara Ali</h4>
+                            <p>Fashion Hub</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <div class="stars">★★★★★</div>
+                    <p>"Best digital agency in Pakistan! 100% satisfied with their work. Will hire again for future projects."</p>
+                    <div class="client">
+                        <img src="https://i.pravatar.cc/100?img=15" alt="Client">
+                        <div>
+                            <h4>Bilal Hassan</h4>
+                            <p>Food Cafe</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-box" data-aos="zoom-in">
+                <h2>Ready to Start Your Project?</h2>
+                <p>Let's work together to build something amazing for your business.</p>
+                <a href="#contact" class="btn btn-white">
+                    <span>Get in Touch</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <p class="subtitle"><span class="line"></span> Get In Touch <span class="line"></span></p>
+                <h2 class="section-title">Let's Work <span class="accent">Together</span></h2>
+                <p class="section-desc">Have a project in mind? We'd love to hear from you.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info" data-aos="fade-right">
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>hello@aghazdigital.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>+92 300 1234567</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>+92 300 1234567</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4>Office</h4>
+                            <p>Karachi, Pakistan</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" onsubmit="sendMessage(event)" data-aos="fade-left">
+                    <div class="form-row">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <input type="text" placeholder="Subject" required>
+                    <textarea rows="6" placeholder="Tell us about your project..." required></textarea>
+                    <button type="submit" class="btn btn-primary">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="logo.png" alt="Aghaz Digital" class="footer-logo">
+                    <p>Empowering businesses through innovative digital solutions. Start. Grow. Succeed.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">Mobile Apps</a></li>
+                        <li><a href="#">UI/UX Design</a></li>
+                        <li><a href="#">Digital Marketing</a></li>
+                        <li><a href="#">SEO</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to get the latest updates and offers.</p>
+                    <form onsubmit="event.preventDefault(); alert('✅ Subscribed!')">
+                        <input type="email" placeholder="Your email">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Aghaz Digital. All rights reserved.</p>
+                <p>Made with ❤️ in Pakistan</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#home" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
