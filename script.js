@@ -1,52 +1,47 @@
 // ============================================
-// CRITICAL: Hide body content immediately (iOS Fix)
+// PRELOADER - Hide when page loads
 // ============================================
-document.documentElement.style.overflow = 'hidden';
-document.body.style.overflow = 'hidden';
-
-// Force hide preloader function
-function forceHidePreloader() {
+function hidePreloader() {
     const preloader = document.getElementById('preloader');
     if (preloader) {
         preloader.style.opacity = '0';
         preloader.style.visibility = 'hidden';
         preloader.style.pointerEvents = 'none';
         preloader.style.transition = 'opacity 0.6s ease, visibility 0.6s ease';
-        document.documentElement.style.overflow = '';
-        document.body.style.overflow = '';
         setTimeout(() => {
             preloader.style.display = 'none';
         }, 600);
     }
 }
 
-// Multiple triggers to ensure preloader hides
+// Hide preloader when page loads
 if (document.readyState === 'complete') {
-    setTimeout(forceHidePreloader, 1500);
+    setTimeout(hidePreloader, 1500);
 } else {
-    window.addEventListener('load', () => setTimeout(forceHidePreloader, 1500));
+    window.addEventListener('load', () => setTimeout(hidePreloader, 1500));
 }
 
-// Absolute fallback (iOS Safari safety)
-setTimeout(forceHidePreloader, 3500);
+// Fallback: Hide preloader after 3.5 seconds max (iOS safety)
+setTimeout(hidePreloader, 3500);
 
 // ============================================
-// AOS INIT
+// AOS INIT - Animation on Scroll (Both Directions)
 // ============================================
 window.addEventListener('load', () => {
     if (typeof AOS !== 'undefined') {
         AOS.init({ 
             duration: 800, 
-            once: true, 
-            offset: 50,
+            once: false, 
+            offset: 100,
             easing: 'ease-out',
+            mirror: true,
             disable: false
         });
     }
 });
 
 // ============================================
-// PARTICLES - Reduced on Mobile
+// PARTICLES - Reduced on Mobile for Performance
 // ============================================
 const particlesContainer = document.getElementById('particles');
 if (particlesContainer) {
