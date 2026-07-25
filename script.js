@@ -14,31 +14,73 @@ function hidePreloader() {
     }
 }
 
-// Hide preloader when page loads
 if (document.readyState === 'complete') {
     setTimeout(hidePreloader, 1500);
 } else {
     window.addEventListener('load', () => setTimeout(hidePreloader, 1500));
 }
-
-// Fallback: Hide preloader after 3.5 seconds max (iOS safety)
 setTimeout(hidePreloader, 3500);
 
 // ============================================
-// AOS INIT - Animation on Scroll (Both Directions)
+// AOS INIT - Animations Repeat Every Time
 // ============================================
 window.addEventListener('load', () => {
     if (typeof AOS !== 'undefined') {
         AOS.init({ 
             duration: 800, 
-            once: false, 
+            once: false,              // ✅ Har baar animate ho
+            mirror: true,             // ✅ Scroll up pe bhi animate ho
             offset: 100,
-            easing: 'ease-out',
-            mirror: true,
-            disable: false
+            easing: 'ease-out-cubic',
+            disable: false,
+            anchorPlacement: 'top-bottom'
         });
+        setTimeout(() => { AOS.refresh(); }, 500);
     }
 });
+
+let resizeTimer;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        if (typeof AOS !== 'undefined') { AOS.refresh(); }
+    }, 250);
+});
+
+// ============================================
+// HERO ANIMATION - Trigger on Load + On View
+// ============================================
+const heroSection = document.querySelector('.hero');
+
+if (heroSection) {
+    function triggerHeroAnimation() {
+        heroSection.classList.remove('animate');
+        void heroSection.offsetWidth;
+        heroSection.classList.add('animate');
+    }
+    
+    // Page load pe animation
+    window.addEventListener('load', () => {
+        setTimeout(triggerHeroAnimation, 100);
+    });
+    
+    // Immediate trigger
+    setTimeout(triggerHeroAnimation, 200);
+    
+    // Scroll pe check - wapis hero pe aane pe animation phir chalao
+    const heroObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                triggerHeroAnimation();
+            }
+        });
+    }, {
+        threshold: 0.3,
+        rootMargin: '0px'
+    });
+    
+    heroObserver.observe(heroSection);
+}
 
 // ============================================
 // PARTICLES - Reduced on Mobile for Performance
@@ -76,7 +118,6 @@ function toggleDarkMode() {
     }
 }
 
-// Load Dark Mode preference
 if (localStorage.getItem('darkMode') === 'enabled') {
     document.body.classList.add('dark');
     setTimeout(() => {
@@ -137,7 +178,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 });
 
 // ============================================
-// SCROLL EFFECTS - Smooth Performance
+// SCROLL EFFECTS
 // ============================================
 let ticking = false;
 
@@ -185,7 +226,7 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // ============================================
-// COUNTER ANIMATION
+// COUNTER ANIMATION - Repeats on scroll
 // ============================================
 const counters = document.querySelectorAll('.counter');
 if (counters.length > 0) {
@@ -203,11 +244,11 @@ if (counters.length > 0) {
                         requestAnimationFrame(update);
                     } else counter.textContent = target;
                 };
+                counter.textContent = '0';
                 update();
-                counterObserver.unobserve(counter);
             }
         });
-    });
+    }, { threshold: 0.5 });
     counters.forEach(c => counterObserver.observe(c));
 }
 
@@ -228,6 +269,10 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
                 setTimeout(() => item.style.display = 'none', 300);
             }
         });
+        
+        if (typeof AOS !== 'undefined') {
+            setTimeout(() => AOS.refresh(), 350);
+        }
     });
 });
 
