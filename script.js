@@ -3,7 +3,7 @@
 // ============================================
 function hidePreloader() {
     const preloader = document.getElementById('preloader');
-    if (preloader) {
+    if (preloader && preloader.style.display !== 'none') {
         preloader.style.opacity = '0';
         preloader.style.visibility = 'hidden';
         preloader.style.pointerEvents = 'none';
@@ -11,6 +11,11 @@ function hidePreloader() {
         setTimeout(() => {
             preloader.style.display = 'none';
         }, 600);
+        
+        // Preloader hide hone ke baad hero animation trigger karo
+        setTimeout(() => {
+            triggerHeroAnimation();
+        }, 400);
     }
 }
 
@@ -22,14 +27,57 @@ if (document.readyState === 'complete') {
 setTimeout(hidePreloader, 3500);
 
 // ============================================
+// HERO ANIMATION - Single Trigger Function
+// ============================================
+let heroAnimationTriggered = false;
+
+function triggerHeroAnimation() {
+    const heroSection = document.querySelector('.hero');
+    if (heroSection) {
+        heroSection.classList.remove('animate');
+        void heroSection.offsetWidth; // Force reflow
+        heroSection.classList.add('animate');
+        heroAnimationTriggered = true;
+    }
+}
+
+// Hero Observer - Scroll pe wapis aane pe animation trigger
+const heroSectionForObserver = document.querySelector('.hero');
+if (heroSectionForObserver) {
+    let hasLeftHero = false;
+    
+    const heroObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Sirf jab wapis aaye (pehle bahar gaya ho)
+                if (hasLeftHero && heroAnimationTriggered) {
+                    triggerHeroAnimation();
+                    hasLeftHero = false;
+                }
+            } else {
+                // Hero bahar chala gaya
+                if (heroAnimationTriggered) {
+                    hasLeftHero = true;
+                }
+            }
+        });
+    }, {
+        threshold: 0.3,
+        rootMargin: '0px'
+    });
+    
+    heroObserver.observe(heroSectionForObserver);
+}
+
+// ============================================
 // AOS INIT - Animations Repeat Every Time
 // ============================================
 window.addEventListener('load', () => {
     if (typeof AOS !== 'undefined') {
         AOS.init({ 
             duration: 800, 
-            once: false,              // ✅ Har baar animate ho
-            mirror: true,             // ✅ Scroll up pe bhi animate ho
+            once: false,
+            mirror: true,
             offset: 100,
             easing: 'ease-out-cubic',
             disable: false,
@@ -46,41 +94,6 @@ window.addEventListener('resize', () => {
         if (typeof AOS !== 'undefined') { AOS.refresh(); }
     }, 250);
 });
-
-// ============================================
-// HERO ANIMATION - Trigger on Load + On View
-// ============================================
-const heroSection = document.querySelector('.hero');
-
-if (heroSection) {
-    function triggerHeroAnimation() {
-        heroSection.classList.remove('animate');
-        void heroSection.offsetWidth;
-        heroSection.classList.add('animate');
-    }
-    
-    // Page load pe animation
-    window.addEventListener('load', () => {
-        setTimeout(triggerHeroAnimation, 100);
-    });
-    
-    // Immediate trigger
-    setTimeout(triggerHeroAnimation, 200);
-    
-    // Scroll pe check - wapis hero pe aane pe animation phir chalao
-    const heroObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                triggerHeroAnimation();
-            }
-        });
-    }, {
-        threshold: 0.3,
-        rootMargin: '0px'
-    });
-    
-    heroObserver.observe(heroSection);
-}
 
 // ============================================
 // PARTICLES - Reduced on Mobile for Performance
