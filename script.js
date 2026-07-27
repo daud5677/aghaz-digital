@@ -12,7 +12,6 @@ function hidePreloader() {
             preloader.style.display = 'none';
         }, 600);
         
-        // Preloader hide hone ke baad hero animation trigger karo
         setTimeout(() => {
             triggerHeroAnimation();
         }, 400);
@@ -35,13 +34,12 @@ function triggerHeroAnimation() {
     const heroSection = document.querySelector('.hero');
     if (heroSection) {
         heroSection.classList.remove('animate');
-        void heroSection.offsetWidth; // Force reflow
+        void heroSection.offsetWidth;
         heroSection.classList.add('animate');
         heroAnimationTriggered = true;
     }
 }
 
-// Hero Observer - Scroll pe wapis aane pe animation trigger
 const heroSectionForObserver = document.querySelector('.hero');
 if (heroSectionForObserver) {
     let hasLeftHero = false;
@@ -49,13 +47,11 @@ if (heroSectionForObserver) {
     const heroObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Sirf jab wapis aaye (pehle bahar gaya ho)
                 if (hasLeftHero && heroAnimationTriggered) {
                     triggerHeroAnimation();
                     hasLeftHero = false;
                 }
             } else {
-                // Hero bahar chala gaya
                 if (heroAnimationTriggered) {
                     hasLeftHero = true;
                 }
@@ -67,6 +63,34 @@ if (heroSectionForObserver) {
     });
     
     heroObserver.observe(heroSectionForObserver);
+}
+
+// ============================================
+// ABOUT GALLERY - 3 Images Animation
+// ============================================
+const aboutGallery = document.getElementById('aboutGallery');
+
+if (aboutGallery) {
+    function triggerGalleryAnimation() {
+        aboutGallery.classList.remove('animate');
+        void aboutGallery.offsetWidth;
+        aboutGallery.classList.add('animate');
+    }
+    
+    const galleryObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                triggerGalleryAnimation();
+            } else {
+                aboutGallery.classList.remove('animate');
+            }
+        });
+    }, {
+        threshold: 0.3,
+        rootMargin: '0px'
+    });
+    
+    galleryObserver.observe(aboutGallery);
 }
 
 // ============================================
@@ -96,7 +120,7 @@ window.addEventListener('resize', () => {
 });
 
 // ============================================
-// PARTICLES - Reduced on Mobile for Performance
+// PARTICLES
 // ============================================
 const particlesContainer = document.getElementById('particles');
 if (particlesContainer) {
@@ -158,7 +182,7 @@ if (!isTouchDevice && window.innerWidth > 768) {
             }, 80);
         });
 
-        document.querySelectorAll('a, button, .service-card, .portfolio-item, .team-card').forEach(el => {
+        document.querySelectorAll('a, button, .service-card, .portfolio-item, .team-card, .gallery-img').forEach(el => {
             el.addEventListener('mouseenter', () => {
                 cursor.classList.add('active');
                 follower.classList.add('active');
@@ -239,7 +263,7 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // ============================================
-// COUNTER ANIMATION - Repeats on scroll
+// COUNTER ANIMATION
 // ============================================
 const counters = document.querySelectorAll('.counter');
 if (counters.length > 0) {
